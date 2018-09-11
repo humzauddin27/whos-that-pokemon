@@ -1,0 +1,71 @@
+@font-face {
+  font-family: PokemonSolid;
+  src: url(assets/fonts/Pokemon_Solid.ttf);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: PokemonSolid;
+  height: 100%;
+  background: red;
+  color: #ffcb05;
+  text-shadow: -1px 0 #2d70b7, 0 1px #2d70b7, 1px 0 #2d70b7, 0 -1px #2d70b7;
+  letter-spacing: 1px;
+}
+
+.App {
+  height: 100%;
+  text-align: center;
+}
+
+.logo {
+  height: 30px;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  background-color: #222;
+  padding: 20px;
+  font-size: 28px;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.failed-load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #222;
+  padding: 20px;
+  font-size: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}

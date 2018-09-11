@@ -1,0 +1,18 @@
+.guess-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  padding: 5px;
+}
+
+.guess-button {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.guess-button:hover {
+  cursor: pointer;
+}
