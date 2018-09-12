@@ -70,7 +70,7 @@ class Display extends Component {
 
   assignGuessValue = newGuess => {
     const { pokeInfo, streak } = this.state;
-    const guessFiltered = newGuess.toLowerCase();
+    const guessFiltered = newGuess.toLowerCase().replace(/\s/g, "");
     if (guessFiltered === pokeInfo.name) {
       this.setState({ pokemonFound: true, streak: streak + 1 });
     } else if (this.state.wrongGuesses === 2) {

@@ -5,11 +5,13 @@
 }
 
 .input {
+  font-size: 16px;
   padding: 5px;
 }
 
 .guess-button {
   margin-left: 10px;
+  font-size: 20px;
   padding: 5px;
 }
 
