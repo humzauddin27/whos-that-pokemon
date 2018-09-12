@@ -92,7 +92,7 @@ class Display extends Component {
   };
 
   render() {
-    const { pokeInfo, pokemonFound } = this.state;
+    const { pokeInfo, pokemonFound, streak } = this.state;
     if (!pokeInfo) {
       return <LoadingSpinner />;
     }
@@ -103,15 +103,15 @@ class Display extends Component {
         <Sprite path={sprite} hidden />
         {this.giveHints()}
         <GuessInput assignGuessValue={this.assignGuessValue} />
-        <p> Streak: {this.state.streak} </p>
+        <p> Streak: {streak} </p>
       </div>
     ) : (
       <div>
         <PokemonInfo sprite={sprite} pokemonInfo={pokeInfo} />
         <div className="start-again-button" onClick={this.handleOnRestart}>
-          Start Again
+          {streak > 0 ? "Continue" : "Start Again"}
         </div>
-        <p> Streak: {this.state.streak} </p>
+        <p> Streak: {streak} </p>
       </div>
     );
   }
