@@ -1,29 +1,37 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Display from "./components/Display";
+import RegionSelector from "./components/RegionSelector";
 import LoadingSpinner from "./components/LoadingSpinner";
-import { numberOfPokemon } from "./consts";
+import { REGIONS } from "./consts";
 import "./App.css";
 
 class App extends Component {
   state = {
+    numberOfPokemon: 0,
     listOfPokemon: [],
     error: null
   };
 
-  componentWillMount() {
+  fetchPokemon(numberOfPokemon) {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon?limit=${numberOfPokemon}`)
       .then(response => {
         this.setState({
+          numberOfPokemon: numberOfPokemon,
           listOfPokemon: response.data.results
         });
       })
       .catch(error => this.setState({ error: error }));
   }
 
+  setRegion = regionSelected => {
+    this.fetchPokemon(regionSelected);
+  };
+
   render() {
-    if (this.state.error) {
+    const { listOfPokemon, numberOfPokemon, error } = this.state;
+    if (error) {
       const failedImage = require(`./assets/images/brock.gif`);
       return (
         <div className="failed-load">
@@ -33,13 +41,6 @@ class App extends Component {
       );
     }
 
-    if (!this.state.listOfPokemon.length) {
-      return (
-        <div className="loading-spinner">
-          <LoadingSpinner />
-        </div>
-      );
-    }
     return (
       <div className="App">
         <header className="App-header">
@@ -47,7 +48,16 @@ class App extends Component {
         </header>
         <div className="body">
           <div className="display">
-            <Display listOfPokemon={this.state.listOfPokemon} />
+            {numberOfPokemon === 0 ? (
+              <div className="region-select">
+                <RegionSelector setRegion={this.setRegion} />
+              </div>
+            ) : (
+              <Display
+                listOfPokemon={listOfPokemon}
+                numberOfPokemon={numberOfPokemon}
+              />
+            )}
           </div>
         </div>
       </div>
