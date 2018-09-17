@@ -6,6 +6,18 @@ img {
   padding: 15px;
 }
 
+@media only screen and (max-width: 600px) {
+  .hidden-input {
+    display: none;
+  }
+}
+
+.hidden-input {
+  position: absolute;
+  width: 1px;
+  top: -50px;
+}
+
 .types {
   display: flex;
   justify-content: center;

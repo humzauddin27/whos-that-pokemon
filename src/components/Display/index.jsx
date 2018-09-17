@@ -15,6 +15,12 @@ class Display extends Component {
     streak: 0
   };
 
+  focusInput = component => {
+    if (component) {
+      component.focus();
+    }
+  };
+
   componentWillMount() {
     this.assignNewPokemon();
   }
@@ -107,7 +113,21 @@ class Display extends Component {
     ) : (
       <div>
         <PokemonInfo sprite={sprite} pokemonInfo={pokeInfo} />
-        <div className="start-again-button" onClick={this.handleOnRestart}>
+        <input
+          className="hidden-input"
+          ref={this.focusInput}
+          onKeyDown={event => {
+            if (event.key === "Enter") {
+              this.handleOnRestart();
+            }
+          }}
+        />
+        <div
+          id="start-again-button"
+          type="submit"
+          className="start-again-button"
+          onClick={this.handleOnRestart}
+        >
           {streak > 0 ? "Continue" : "Start Again"}
         </div>
         <p> Streak: {streak} </p>

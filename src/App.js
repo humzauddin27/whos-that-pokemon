@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import Display from "./components/Display";
 import RegionSelector from "./components/RegionSelector";
-import LoadingSpinner from "./components/LoadingSpinner";
-import { REGIONS } from "./consts";
 import "./App.css";
 
 class App extends Component {

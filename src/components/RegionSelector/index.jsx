@@ -10,10 +10,9 @@ class RegionSelector extends Component {
         <div className="images">
           {" "}
           {Object.values(REGIONS).map(region => (
-            <div>
+            <div key={region.art}>
               <img
                 className="boxart"
-                key={region.art}
                 src={region.art}
                 alt={region.num}
                 onClick={() => this.props.setRegion(region.num)}

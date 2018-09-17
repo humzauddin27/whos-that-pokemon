@@ -6,6 +6,10 @@ class GuessInput extends Component {
     inputValue: ""
   };
 
+  componentDidMount() {
+    this.guessInput.focus();
+  }
+
   updateSearchValue = event => {
     const newInputValue = event.target.value;
     this.setState({ inputValue: newInputValue });
@@ -20,6 +24,9 @@ class GuessInput extends Component {
       <div className="guess-input">
         <input
           className="input"
+          ref={input => {
+            this.guessInput = input;
+          }}
           value={this.state.inputValue}
           onChange={this.updateSearchValue}
           onKeyDown={event => {
