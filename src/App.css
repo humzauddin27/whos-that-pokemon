@@ -25,6 +25,11 @@ body {
   height: 30px;
 }
 
+.region-select {
+  display: flex;
+  justify-content: center;
+}
+
 .App-header {
   display: flex;
   flex-direction: column;

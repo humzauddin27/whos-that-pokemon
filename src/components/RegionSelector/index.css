@@ -1,0 +1,22 @@
+.select-region {
+  max-width: 1000px;
+  text-align: center;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.boxart {
+  max-height: 200px;
+  max-width: 200px;
+  padding: 10px;
+  transition: transform 0.2s;
+}
+
+.boxart:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}

@@ -4,7 +4,6 @@ import GuessInput from "../GuessInput";
 import PokemonInfo from "../PokemonInfo";
 import Sprite from "../Sprite";
 import LoadingSpinner from "../LoadingSpinner";
-import { numberOfPokemon } from "../../consts";
 import "./index.css";
 
 class Display extends Component {
@@ -42,7 +41,7 @@ class Display extends Component {
   };
 
   generateRandomNumber() {
-    return Math.floor(Math.random() * numberOfPokemon);
+    return Math.floor(Math.random() * this.props.numberOfPokemon);
   }
 
   giveHints = () => {
