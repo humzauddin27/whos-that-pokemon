@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+Link to the game deployed to heroku: https://humzas-whos-that-pokemon.herokuapp.com/
+
 This is a simple "Who's that Pokemon" guessing game, based on the guessing game that would happen between intermissions in the real television show.
 
 Once you're on the site, a black figure of a pokemon should appear. This is the pokemon who you will have to guess using the input below the shadowed figure.
