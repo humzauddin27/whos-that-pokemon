@@ -22,7 +22,6 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row-reverse;
 }
 
 .types p {
@@ -33,6 +32,13 @@ img {
   height: 20px;
 }
 
+.start-again-button {
+  background-color: rgb(205, 35, 35);
+  padding: 0.8em;
+  border-radius: 1cm;
+}
+
 .start-again-button:hover {
   cursor: pointer;
+  background-color: #41aaba;
 }

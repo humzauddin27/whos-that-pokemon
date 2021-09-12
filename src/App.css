@@ -10,7 +10,7 @@ html {
 body {
   font-family: PokemonSolid;
   height: 100%;
-  background: red;
+  background: wheat;
   color: #ffcb05;
   text-shadow: -1px 0 #2d70b7, 0 1px #2d70b7, 1px 0 #2d70b7, 0 -1px #2d70b7;
   letter-spacing: 1px;
@@ -33,7 +33,7 @@ body {
 .App-header {
   display: flex;
   flex-direction: column;
-  background-color: #222;
+  background-color: rgb(205, 35, 35);
   padding: 20px;
   font-size: 28px;
 }

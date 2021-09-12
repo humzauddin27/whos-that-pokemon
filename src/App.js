@@ -8,23 +8,39 @@ class App extends Component {
   state = {
     numberOfPokemon: 0,
     listOfPokemon: [],
-    error: null
+    error: null,
   };
 
   fetchPokemon(numberOfPokemon) {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon?limit=${numberOfPokemon}`)
-      .then(response => {
+      .then((response) => {
         this.setState({
           numberOfPokemon: numberOfPokemon,
-          listOfPokemon: response.data.results
+          listOfPokemon: response.data.results,
         });
       })
-      .catch(error => this.setState({ error: error }));
+      .catch((error) => this.setState({ error: error }));
   }
 
-  setRegion = regionSelected => {
+  setRegion = (regionSelected) => {
     this.fetchPokemon(regionSelected);
+  };
+
+  goBackToRegionSelect = () => {
+    return (
+      <div
+        onClick={() => {
+          if (window.confirm("This will reset your streak to 0")) {
+            this.setState({ numberOfPokemon: 0 });
+          }
+        }}
+        className="backToRegionSelect"
+      >
+        {" "}
+        Go back to Region Select{" "}
+      </div>
+    );
   };
 
   render() {
@@ -51,10 +67,13 @@ class App extends Component {
                 <RegionSelector setRegion={this.setRegion} />
               </div>
             ) : (
-              <Display
-                listOfPokemon={listOfPokemon}
-                numberOfPokemon={numberOfPokemon}
-              />
+              <div>
+                <Display
+                  listOfPokemon={listOfPokemon}
+                  numberOfPokemon={numberOfPokemon}
+                />
+                {this.goBackToRegionSelect()}
+              </div>
             )}
           </div>
         </div>

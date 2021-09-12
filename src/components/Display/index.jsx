@@ -12,10 +12,10 @@ class Display extends Component {
     pokeInfo: null,
     guessValue: "",
     wrongGuesses: 0,
-    streak: 0
+    streak: 0,
   };
 
-  focusInput = component => {
+  focusInput = (component) => {
     if (component) {
       component.focus();
     }
@@ -37,13 +37,13 @@ class Display extends Component {
     return selectedPokemon;
   }
 
-  getPokemonInfo = pokemon => {
+  getPokemonInfo = (pokemon) => {
     if (!pokemon) {
       return null;
     }
     axios
       .get(pokemon.url)
-      .then(response => this.setState({ pokeInfo: response.data }));
+      .then((response) => this.setState({ pokeInfo: response.data }));
   };
 
   generateRandomNumber() {
@@ -52,18 +52,18 @@ class Display extends Component {
 
   giveHints = () => {
     const { wrongGuesses, pokeInfo } = this.state;
-    const types = pokeInfo.types.map(typeEntry => typeEntry.type.name);
+    const types = pokeInfo.types.map((typeEntry) => typeEntry.type.name);
     const firstLetter = pokeInfo.name.substr(0, 1);
 
     return (
       <div className="hints">
         {wrongGuesses >= 1 && (
           <div className="types">
-            {types.map(type => {
+            {`Type${types.length > 1 ? "s" : ""}: `}
+            {types.map((type) => {
               const typeImage = require(`../../assets/types/${type}.jpg`);
               return <img src={String(typeImage)} alt={type} key={type} />;
             })}
-            {`Type${types.length > 1 ? "s" : ""}: `}
           </div>
         )}
         {wrongGuesses >= 2 && (
@@ -73,7 +73,7 @@ class Display extends Component {
     );
   };
 
-  assignGuessValue = newGuess => {
+  assignGuessValue = (newGuess) => {
     const { pokeInfo, streak } = this.state;
     const guessFiltered = newGuess.toLowerCase().replace(/\s/g, "");
     if (guessFiltered === pokeInfo.name) {
@@ -91,7 +91,7 @@ class Display extends Component {
       pokemonFound: false,
       wrongGuesses: 0,
       guessValue: "",
-      pokeInfo: null
+      pokeInfo: null,
     });
     this.assignNewPokemon();
   };
@@ -116,7 +116,7 @@ class Display extends Component {
         <input
           className="hidden-input"
           ref={this.focusInput}
-          onKeyDown={event => {
+          onKeyDown={(event) => {
             if (event.key === "Enter") {
               this.handleOnRestart();
             }

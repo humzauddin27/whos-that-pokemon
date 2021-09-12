@@ -3,14 +3,14 @@ import "./index.css";
 
 class GuessInput extends Component {
   state = {
-    inputValue: ""
+    inputValue: "",
   };
 
   componentDidMount() {
     this.guessInput.focus();
   }
 
-  updateSearchValue = event => {
+  updateSearchValue = (event) => {
     const newInputValue = event.target.value;
     this.setState({ inputValue: newInputValue });
   };
@@ -24,20 +24,20 @@ class GuessInput extends Component {
       <div className="guess-input">
         <input
           className="input"
-          ref={input => {
+          ref={(input) => {
             this.guessInput = input;
           }}
           value={this.state.inputValue}
           onChange={this.updateSearchValue}
-          onKeyDown={event => {
+          onKeyDown={(event) => {
             if (event.key === "Enter") {
               this.handleOnClick();
             }
           }}
-          placeholder={"Enter a guess here!"}
+          placeholder={"Enter a guess here"}
         />
         <div className="guess-button" onClick={this.handleOnClick}>
-          Guess!
+          Submit
         </div>
       </div>
     );
