@@ -9,7 +9,7 @@ class RegionSelector extends Component {
         <p> Pick the game's national dex that you want to be tested on! </p>
         <div className="images">
           {" "}
-          {Object.values(REGIONS).map(region => (
+          {Object.values(REGIONS).map((region, index) => (
             <div key={region.art}>
               <img
                 className="boxart"
@@ -17,6 +17,7 @@ class RegionSelector extends Component {
                 alt={region.num}
                 onClick={() => this.props.setRegion(region.num)}
               />
+              <p> Generation {index + 1} </p>
               <p> Range: 1 - {region.num} </p>
             </div>
           ))}
